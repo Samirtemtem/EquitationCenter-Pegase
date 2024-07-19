@@ -1,0 +1,25 @@
+/*
+ * Shortcode: Teams.less
+ * -----------------------------------------------
+*/
+.team-block .team-upper-block {
+  overflow: hidden;
+  position: relative;
+}
+.team-block .team-upper-block .styled-icons {
+  background: #fff none repeat scroll 0 0;
+  position: absolute;
+  text-align: center;
+  transform: translateY(-5%);
+  transition: all 300ms linear 0s;
+  width: 100%;
+}
+.team-block:hover .team-upper-block .styled-icons {
+  transform: translateY(-100%);
+}
+.team-block:hover .team-upper-block img {
+  transform: translateY(-35px) scale(1.04);
+}
+.team-block .team-upper-block img {
+  transition: all 300ms linear 0s;
+}

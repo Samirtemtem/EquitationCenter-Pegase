@@ -1,0 +1,15 @@
+
+<div class="form-group" [ngClass]="{'has-error': hasError}"  style="padding-top:10%;padding-left:20%;padding-right:20%;">
+  <div class="alert alert-danger" role="alert" *ngIf="!EmailExists">This email is not registered.</div>
+  <h4 class="text-gray mt-0 pt-5">Recover your account</h4>
+  <span class="control-label" >{{ErrorText}}</span>
+
+  <div class="input-group col-xs-0" >
+    <input type="text" class="form-control" name="email" [(ngModel)]="emailPart1" (keyup)="Checkone($event)">
+    <span class="input-group-addon"> &#64; </span>
+    <input type="text" class="form-control"  [(ngModel)]="emailPart2" (keyup)="Checkone($event)" id="inputGroupSuccess1">
+  </div>
+  <button (click)="verifyEmail()" [disabled]="!isEmailValid" class="btn btn-dark btn-theme-colored btn-circled" style="margin-left:45%;margin-top:5%;">Send OTP code</button>
+</div>
+
+

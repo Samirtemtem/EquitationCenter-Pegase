@@ -1,0 +1,55 @@
+.time-line {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 60%;
+  margin: auto;
+  position: fixed;
+  top: 140px;
+  left: 20%;
+}
+.glyphicon {
+  font-size: 28px;
+  margin: 20px;
+  color: rgb(43, 43, 50);
+}
+.disabled:hover {
+  background-color: rgba(128, 128, 128, 0.418) !important;
+  cursor: not-allowed !important;
+}
+
+.icon {
+  border: solid 2px #ff00ff;
+  background-color: white;
+  width: 70px;
+  height: 70px;
+  border-radius: 200px;
+  cursor: pointer;
+}
+
+.icon div {
+  position: absolute;
+  top: -33px;
+  transform: translateX(-50%); /* Center horizontally */
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: none;
+}
+.hover-text1 {
+  left: 12.5%;
+}
+.hover-text2 {
+  left: 37.5%;
+}
+.hover-text3 {
+  left: 62.5%;
+}
+.hover-text4 {
+  left: 87.5%;
+}
+
+.icon:hover div {
+  display: block;
+}

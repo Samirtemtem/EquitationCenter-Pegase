@@ -1,0 +1,45 @@
+
+<div class="main-content">
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-push-3">
+          <h4 class="text-gray mt-0 pt-5"> Login</h4>
+          <hr>
+          <div *ngIf="showAlert" class="alert alert-danger" role="alert">{{loginError}}</div>
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="clearfix">
+            <div class="row">
+              <div class="form-group col-md-12">
+                <label for="form_username_email">Username/Email</label>
+                <input id="form_username_email" name="form_username_email" formControlName="email" class="form-control" type="text">
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-12">
+                <label for="form_password">Password</label>
+                <input id="form_password" name="form_password" class="form-control" formControlName="password" type="text">
+              </div>
+            </div>
+            <div class="checkbox pull-left mt-15">
+              <label for="form_checkbox">
+                <input id="form_checkbox" name="form_checkbox" type="checkbox">
+                Remember me </label>
+            </div>
+            <div class="form-group pull-right mt-10">
+              <button type="submit" class="btn btn-dark btn-sm" [disabled]="loginForm.invalid">Login</button>
+            </div>
+            <div class="clear text-center pt-10">
+              <a class="text-theme-colored font-weight-600 font-12" routerLink="/account">Forgot Your Password?</a>
+            </div>
+            <div class="clear text-center pt-10">
+              <a class="btn btn-dark btn-lg btn-block no-border mt-15 mb-15" href="#" data-bg-color="#3b5998" style="background: rgb(59, 89, 152) !important;">Login with facebook</a>
+              <a class="btn btn-dark btn-lg btn-block no-border" href="#" data-bg-color="#00acee" style="background: rgb(0, 172, 238) !important;">Login with twitter</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end main-content -->
+</div>

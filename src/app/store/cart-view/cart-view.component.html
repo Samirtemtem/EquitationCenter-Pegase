@@ -1,0 +1,111 @@
+<div class="main-content">
+
+  <!-- Section: inner-header -->
+  <section class="inner-header divider parallax layer-overlay overlay-dark-5" data-bg-img="http://placehold.it/1500x996" style="background-image: url(http://placehold.it/1500x996); background-position: 50% 120px;">
+    <div class="container pt-90 pb-50">
+      <!-- Section Content -->
+      <div class="section-content pt-100">
+        <div class="row">
+          <div class="col-md-12">
+            <h3 class="title text-white">Shop Cart</h3>
+            <ul class="list-inline text-white">
+              <li>Home /</li>
+              <li><span class="text-gray">Shop Cart</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-content">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <table class="table table-striped table-bordered tbl-shopping-cart">
+              <thead>
+              <tr>
+                <th></th>
+                <th>Photo</th>
+                <th>Product Name</th>
+                <th>Price</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let product of products" class="cart_item">
+                <td class="product-remove"><a title="Remove this item" class="remove" (click)="removeItem(product)">×</a></td>
+                <td class="product-thumbnail"><a href="#"><img alt="member" src="{{product.image}}"></a></td>
+                <td class="product-name"><a class="text-theme-colored" href="#">{{product.name}}</a>
+                  <ul class="variation">
+                    <li class="variation-size">Size: <span>{{product.taille}}</span></li>
+                  </ul></td>
+                <td class="product-price"><span class="amount">{{ product.prix }} TND</span></td>
+              </tr>
+
+              </tbody>
+            </table>
+          </div>
+          <div class="col-md-10 col-md-offset-1 mt-30">
+            <div class="row">
+              <div class="col-md-6">
+                <h4>Calculate Shipping</h4>
+                  <table class="table no-border form">
+                    <tbody>
+                    <tr>
+                      <td><select [(ngModel)]="country" #countryRef="ngModel" class="form-control">
+                        <option>Select Country</option>
+                        <option>Australia</option>
+                        <option>UK</option>
+                        <option>USA</option>
+                      </select>
+                        <div *ngIf="countryRef.invalid && stateRef.touched" style="background-color:red;">
+                          Country is required.
+                        </div></td>
+                    </tr>
+                    <tr>
+                      <td><input type="text" [(ngModel)]="State" #stateRef="ngModel" required class="form-control" placeholder="State/country*" value="">
+                        <div *ngIf="stateRef.invalid && stateRef.touched" style="color:red;">
+                          State is required.
+                        </div></td>
+                    </tr>
+
+
+                    <tr>
+                      <td><input type="text" class="form-control" [(ngModel)]="zipcode" #zipRef="ngModel" placeholder="Postcode/zip" value="">
+                        <div *ngIf="zipRef.invalid && zipRef.touched" style="background-color:red;">
+                          Zipcode is required.
+                        </div>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+              </div>
+              <div class="col-md-6">
+                <h4>Cart Totals</h4>
+                <table class="table table-bordered">
+                  <tbody>
+                  <tr>
+                    <td>Cart Subtotal</td>
+                    <td>{{Subtotal}}</td>
+                  </tr>
+                  <tr>
+                    <td>Shipping and Handling</td>
+                    <td>7 TND</td>
+                  </tr>
+                  <tr>
+                    <td>Order Total</td>
+                    <td>{{ totalPrice }}</td>
+                  </tr>
+                  </tbody>
+                </table>
+                <button (click)="confirmCommand()" [disabled]="countryRef.invalid || stateRef.invalid || zipRef.invalid ||
+                   countryRef.untouched || stateRef.untouched || zipRef.untouched" class="btn btn-default">Confirm command</button> </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end main-content -->
+</div>
