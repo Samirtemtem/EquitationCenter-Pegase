@@ -31,6 +31,7 @@ export const routes: Routes = [
   {
     path : "account/recovery/captcha",component: CaptchaComponent
   },
+  { path : "captcha",component: CaptchaComponent},
   { path : "account",component: RecoveryComponent},
   {path : "signup",component: SignupComponent},
   {path: "**", component: PagenotfoundComponent},

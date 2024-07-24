@@ -101,89 +101,89 @@
   <!-- Start main-content -->
 
   <header id="header" class="header">
-  <div class="header-top bg-theme-colored sm-text-center p-0">
-    <div class="container">
-      <div class="row">
+    <div class="header-top bg-theme-colored sm-text-center p-0">
+      <div class="container">
+        <div class="row">
           <div class="widget m-0 pull-right flip sm-pull-none sm-text-center">
             <ul class="list-inline pull-right flip">
               <app-cart-component></app-cart-component>
             </ul>
           </div>
-      </div>
-    </div>
-  </div>
-  <div class="header-middle p-0 xs-text-center">
-    <div class="container pt-0 pb-0">
-      <div class="row">
-        <div class="col-xs-12 col-sm-3 col-md-6">
-          <div class="widget no-border m-0">
-            <a href="" class="menuzord-brand pull-left flip xs-pull-center mt-20 mb-10"><img alt="" src="images/logo-wide.png"></a>
-          </div>
-        </div>
-        <div class="col-xs-12 col-sm-3 col-md-2">
-          <div class="widget no-border m-0">
-            <div class="mt-15 mb-10 text-right flip sm-text-center">
-              <div class="font-15 text-black-333 mb-5 font-weight-600"><i class="fa fa-envelope text-theme-colored font-18"></i> Mail Us Today</div>
-              <a href="#" class="font-12 text-gray"> infoyourdomain.com</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-xs-12 col-sm-3 col-md-2">
-          <div class="widget no-border m-0">
-            <div class="mt-15 mb-10 text-right flip sm-text-center">
-              <div class="font-15 text-black-333 mb-5 font-weight-600"><i class="fa fa-map-marker text-theme-colored font-18"></i> Company Location</div>
-              <a href="#" class="font-12 text-gray"> 121 King Street, Melbourne</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-xs-12 col-sm-3 col-md-2">
-          <div class="widget no-border m-0">
-            <div class="mt-15 mb-10 text-right flip sm-text-center">
-              <div class="font-15 text-black-333 mb-5 font-weight-600"><i class="fa fa-phone-square text-theme-colored font-18"></i> +(012) 345 6789</div>
-              <a href="#" class="font-12 text-gray"> Call us for more details</a>
-            </div>
-          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="header-nav">
-    <div class="header-nav-wrapper navbar-scrolltofixed bg-lighter">
-      <div class="container">
-        <nav id="menuzord" class="menuzord pull-left flip menuzord-responsive">
-          <ul class="menuzord-menu">
-            <li class="active"><a routerLink="home" href="/">Home</a>
-            </li>
-            <li *ngIf="!(isLoggedIn | async)"><a href="login" routerLink="login">Login</a></li>
-            <li *ngIf="!(isLoggedIn | async)"><a href="signup" routerLink="signup">Sign up</a></li>
-            <li *ngIf="(isLoggedIn | async)"><a href="store" routerLink="store">Our Products</a></li>
-            <li *ngIf="(isLoggedIn | async)"><a href="myorders">My Orders</a></li>
-            <li *ngIf="(isLoggedIn | async)"><a (click)="LogOut()">Log out</a></li>
+    <div class="header-middle p-0 xs-text-center">
+      <div class="container pt-0 pb-0">
+        <div class="row">
+          <div class="col-xs-12 col-sm-3 col-md-6">
+            <div class="widget no-border m-0">
+              <a href="" class="menuzord-brand pull-left flip xs-pull-center mt-20 mb-10"><img alt="" src="images/logo-wide.png"></a>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-3 col-md-2">
+            <div class="widget no-border m-0">
+              <div class="mt-15 mb-10 text-right flip sm-text-center">
+                <div class="font-15 text-black-333 mb-5 font-weight-600"><i class="fa fa-envelope text-theme-colored font-18"></i> Mail Us Today</div>
+                <a href="#" class="font-12 text-gray"> infoyourdomain.com</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-3 col-md-2">
+            <div class="widget no-border m-0">
+              <div class="mt-15 mb-10 text-right flip sm-text-center">
+                <div class="font-15 text-black-333 mb-5 font-weight-600"><i class="fa fa-map-marker text-theme-colored font-18"></i> Company Location</div>
+                <a href="#" class="font-12 text-gray"> 121 King Street, Melbourne</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-3 col-md-2">
+            <div class="widget no-border m-0">
+              <div class="mt-15 mb-10 text-right flip sm-text-center">
+                <div class="font-15 text-black-333 mb-5 font-weight-600"><i class="fa fa-phone-square text-theme-colored font-18"></i> +(012) 345 6789</div>
+                <a href="#" class="font-12 text-gray"> Call us for more details</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="header-nav">
+      <div class="header-nav-wrapper navbar-scrolltofixed bg-lighter">
+        <div class="container">
+          <nav id="menuzord" class="menuzord pull-left flip menuzord-responsive">
+            <ul class="menuzord-menu">
+              <li class="active"><a routerLink="home" href="/">Home</a>
+              </li>
+              <li *ngIf="!(isLoggedIn | async)"><a href="login" routerLink="login">Login</a></li>
+              <li *ngIf="!(isLoggedIn | async)"><a href="signup" routerLink="signup">Sign up</a></li>
+              <li *ngIf="(isLoggedIn | async)"><a href="store" routerLink="store">Our Products</a></li>
+              <li *ngIf="(isLoggedIn | async)"><a href="myorders">My Orders</a></li>
+              <li *ngIf="(isLoggedIn | async)"><a (click)="LogOut()">Log out</a></li>
 
-          </ul>
-          <ul class="pull-right flip hidden-sm hidden-xs">
-            <li>
-              <!-- Ajax Popup form Starts -->
-              <a class="btn btn-colored btn-flat top-left-triangle bg-theme-colored text-white font-14 ajaxload-popup p-10 mt-15 pr-30 pl-15" href="ajax-load/reservation-form.html">Get A quote Now</a>
-              <!-- Ajax Popup form End -->
-            </li>
-          </ul>
-          <div id="top-search-bar" class="collapse">
-            <div class="container">
-              <form role="search" action="#" class="search_form_top" method="get">
-                <input type="text" placeholder="Type text and press Enter..." name="s" class="form-control" autocomplete="off">
-                <span class="search-close"><i class="fa fa-search"></i></span>
-              </form>
+            </ul>
+            <ul class="pull-right flip hidden-sm hidden-xs">
+              <li>
+                <!-- Ajax Popup form Starts -->
+                <a class="btn btn-colored btn-flat top-left-triangle bg-theme-colored text-white font-14 ajaxload-popup p-10 mt-15 pr-30 pl-15" href="ajax-load/reservation-form.html">Get A quote Now</a>
+                <!-- Ajax Popup form End -->
+              </li>
+            </ul>
+            <div id="top-search-bar" class="collapse">
+              <div class="container">
+                <form role="search" action="#" class="search_form_top" method="get">
+                  <input type="text" placeholder="Type text and press Enter..." name="s" class="form-control" autocomplete="off">
+                  <span class="search-close"><i class="fa fa-search"></i></span>
+                </form>
+              </div>
             </div>
-          </div>
-        </nav>
+          </nav>
+        </div>
       </div>
     </div>
+  </header>
+  <div style="margin:50px;">
+    <router-outlet></router-outlet>
   </div>
-</header>
-<div style="margin:50px;">
-  <router-outlet></router-outlet>
-</div>
 
   <footer id="footer">
     <section class="divider layer-overlay overlay-dark-8" data-bg-img="http://placehold.it/1500x996">

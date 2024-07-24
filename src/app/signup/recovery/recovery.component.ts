@@ -1,8 +1,9 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
-import {FormGroup, FormControl, Validators, FormsModule} from '@angular/forms';
+import {FormGroup, FormControl, Validators, FormsModule, ReactiveFormsModule, FormBuilder} from '@angular/forms';
 import { FirebaseAuthService } from '../../services/firebase-auth.service';
 import {NgClass, NgIf} from "@angular/common";
 import {Router} from "@angular/router";
+import {NgxCaptchaModule} from "ngx-captcha";
 
 @Component({
   selector: 'app-recovery',
@@ -11,7 +12,9 @@ import {Router} from "@angular/router";
   imports: [
     NgIf,
     FormsModule,
-    NgClass
+    NgClass,
+    NgxCaptchaModule,
+    ReactiveFormsModule
   ],
   styleUrls: ['./recovery.component.css']
 })
@@ -24,13 +27,21 @@ export class RecoveryComponent implements OnInit {
   emailPart2: String = '';
   isEmailValid: boolean = false;
   EmailExists: boolean = true;
+  MailSent : boolean = false;
+  isCaptchaValid: boolean = false;
 
-  constructor(private firebaseAuthService: FirebaseAuthService,private router : Router) { }
+  constructor(private formBuilder: FormBuilder,private firebaseAuthService: FirebaseAuthService,private router : Router) { }
+
+
+
 
   ngOnInit(): void {
     this.recoveryForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email])
     });
+    this.isCaptchaValid = false;
+    this.isEmailValid = false;
+
   }
 
   async verifyEmail(){
@@ -41,14 +52,14 @@ export class RecoveryComponent implements OnInit {
       let emails : [];
       let emailExists : boolean
       (await this.firebaseAuthService.checkEmailExists(email)).subscribe(res => {
-        // Assuming res is an array of users. Adjust based on your actual data structure.
         if (res && res.length > 0) {
           console.log("Email exists");
           this.firebaseAuthService.forgotPassword(email);
-          this.router.navigate(['/account/OneTimePassword']);
+          this.MailSent = true;
         } else {
           console.log("Email does not exist");
           this.EmailExists = false;
+          this.isEmailValid = false;
         }
       });
 /*      if (emails.length > 0) {
@@ -80,5 +91,9 @@ export class RecoveryComponent implements OnInit {
       this.isEmailValid = true;
 
     }
+  }
+
+  handleSuccess($event: string) {
+    this.isCaptchaValid = true;
   }
 }

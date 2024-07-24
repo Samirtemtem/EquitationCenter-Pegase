@@ -9,7 +9,6 @@ import {CommonModule, JsonPipe, NgIf} from '@angular/common';
   standalone: true,
   imports: [ReactiveFormsModule, JsonPipe, FormsModule, CommonModule, NgIf, RouterLink],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
 })
 export class LoginComponent implements OnInit {
 

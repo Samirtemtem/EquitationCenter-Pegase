@@ -17,7 +17,7 @@ import {CartComponentComponent} from "./cart-component/cart-component.component"
    ],
 
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: 'app.component.css'
 })
 export class AppComponent implements OnInit{
   title = 'Pégase';

@@ -24,8 +24,28 @@ export class FirebaseAuthService {
     return this.afAuth.signInWithEmailAndPassword(email, password);
   }
 
-  register(email: string, password: string) {
-    return this.afAuth.createUserWithEmailAndPassword(email, password);
+  async register(email: string, password: string,name: string,lastname: string,phoneNumber: string) {
+    try {
+      const userCredential = await this.afAuth.createUserWithEmailAndPassword(email, password);
+      const user = userCredential.user;
+      if (user) {
+        await this.firestore.collection("user").doc(user.uid).set({
+          email: user.email,
+          uid: user.uid,
+          display_name : name,
+          created_time : new Date(),
+          firstname : name,
+          lastname: lastname,
+          phone_number: phoneNumber,
+          photo_url : "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Windows_10_Default_Profile_Picture.svg/2048px-Windows_10_Default_Profile_Picture.svg.png",
+
+        });
+        console.log("User added to Firestore");
+      }
+    } catch (error) {
+      console.error("Error registering user: ", error);
+      throw error; // Or handle it as needed
+    }
   }
 
   logout() {

@@ -10,7 +10,7 @@ import {ToasterService} from "../../services/toaster.service";
   imports: [
   ],
   templateUrl: './product-details.component.html',
-  styleUrl: './product-details.component.css'
+  styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent {
   product: any;
